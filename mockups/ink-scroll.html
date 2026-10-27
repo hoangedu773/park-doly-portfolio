@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>墨築 — I build in layers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#e7e0d2;
+  --paper-deep:#e8dfcd;
+  --ink:#1b1a17;
+  --ink-soft:#4b4841;
+  --seal:#a83a2b;
+  --seal-bright:#c8402a;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;height:100%}
+body{background:var(--paper-deep);color:var(--ink);font-family:"Cormorant Garamond",Georgia,serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.stage{position:relative;width:100%;height:100svh;overflow:clip;background:var(--paper-deep)}
+.painting{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:54% 48%;animation:drift 24s ease-in-out infinite alternate}
+
+.colophon{
+  position:absolute;z-index:4;left:0;top:0;bottom:0;width:420px;
+  background:var(--paper);
+  padding:34px 38px 26px;
+  display:flex;flex-direction:column;
+}
+.brand{font-size:15px;letter-spacing:.06em}
+.place{font-size:13px;letter-spacing:.04em;color:var(--ink-soft);margin-top:4px}
+
+.han{
+  margin:24px 0 0;
+  writing-mode:vertical-rl;
+  font-family:"Ma Shan Zheng",serif;font-weight:400;
+  font-size:clamp(104px,8.4vw,124px);
+  line-height:.94;letter-spacing:.02em;
+  height:250px;
+  animation:inkIn 1.3s var(--ease) .1s both;
+}
+.han span{display:block;white-space:nowrap}
+
+.headline{margin:18px 0 0;font-size:46px;line-height:1;font-weight:500;letter-spacing:-.015em;animation:fadeUp .9s var(--ease) .45s both}
+.subline{margin:18px 0 0;font-size:16px;line-height:1.45;color:var(--ink);max-width:33ch;animation:fadeUp .9s var(--ease) .55s both}
+.proof{margin:16px 0 0;font-size:13px;letter-spacing:.04em;color:var(--ink-soft);animation:fadeUp .9s var(--ease) .62s both}
+
+.button{display:flex;align-items:center;justify-content:space-between;gap:12px;height:46px;padding:0 16px;margin:16px 0 0;background:var(--ink);color:var(--paper);font-size:15px;letter-spacing:.03em;transition:background .2s var(--ease)}
+.button:hover{background:var(--seal)}
+.button:focus-visible{outline:2px solid var(--seal);outline-offset:3px}
+.nav{display:flex;flex-wrap:wrap;gap:18px;margin:22px 0 0;font-size:14px;letter-spacing:.02em;animation:fadeUp .9s var(--ease) .7s both}
+.nav a{opacity:.8;transition:opacity .2s var(--ease)}
+.nav a:hover,.nav a:focus-visible{opacity:1}
+.nav a:focus-visible{outline:1px solid var(--ink);outline-offset:3px}
+
+.works{margin:18px 0 0;padding:0;list-style:none;animation:fadeUp .9s var(--ease) .78s both}
+.works a{display:flex;align-items:baseline;gap:10px;padding:6px 0;font-size:19px;line-height:1.2;transition:color .2s var(--ease)}
+.works a:hover,.works a:focus-visible{color:var(--seal)}
+.works a:focus-visible{outline:1px solid var(--seal);outline-offset:3px}
+.works .dot{width:6px;height:6px;background:var(--seal-bright);display:inline-block;flex:0 0 auto;transform:translateY(-2px)}
+.works .year{margin-left:auto;font-size:13px;color:var(--ink-soft);letter-spacing:.04em}
+
+.contact{margin-top:auto;padding-top:24px;animation:fadeUp .9s var(--ease) .9s both}
+.status{display:flex;align-items:center;gap:8px;font-size:13px;letter-spacing:.04em;color:var(--ink-soft)}
+.status i{width:6px;height:6px;background:var(--seal-bright);display:inline-block}
+.mail{display:block;margin-top:7px;font-size:19px;letter-spacing:.01em}
+.mail:hover{text-decoration:underline;text-underline-offset:4px}
+.credit{margin:22px 0 0;font-size:13px;line-height:1.3;letter-spacing:.03em;color:var(--ink-soft);opacity:.8}
+
+.seal{
+  position:absolute;z-index:6;right:64px;bottom:64px;
+  width:86px;height:86px;background:var(--seal);color:#f4ead8;
+  display:grid;place-items:center;
+  font-family:"Ma Shan Zheng",serif;font-size:54px;line-height:1;
+  transform:rotate(-3deg);
+  animation:stamp .5s var(--ease) 1.25s both;
+}
+.seal::after{content:"";position:absolute;inset:6px;border:1px solid rgba(244,234,216,.55);pointer-events:none}
+
+@keyframes drift{from{transform:scale(1) translateX(0)}to{transform:scale(1.03) translateX(-.6%)}}
+@keyframes inkIn{from{opacity:0;transform:translateY(10px);filter:blur(3px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes stamp{from{opacity:0;transform:rotate(-3deg) scale(1.25)}to{opacity:1;transform:rotate(-3deg) scale(1)}}
+
+@media (max-width:900px){
+  .stage{height:auto;min-height:100svh;overflow:clip}
+  .painting{position:relative;inset:auto;width:100%;height:44svh;object-position:56% 50%;animation:none}
+  .colophon{position:relative;width:100%;padding:26px 22px 24px}
+  .han{font-size:72px;height:auto;margin-top:8px;writing-mode:horizontal-tb;letter-spacing:.04em}
+  .headline{font-size:36px}
+  .subline{max-width:36ch}
+  .nav{gap:16px}
+  .contact{padding-top:22px}
+  .seal{position:absolute;right:22px;top:calc(44svh - 96px);bottom:auto;width:72px;height:72px;font-size:44px;animation:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .painting,.han,.headline,.subline,.proof,.nav,.works,.contact,.seal{animation:none;transform:none}
+}
+</style>
+</head>
+<body>
+<main class="stage">
+  <img class="painting" src="../public/art/ink-scroll.jpg" width="1536" height="916" alt="Ink wash landscape: misty mountains, a river, a small bridge, a pavilion and a lone boat on aged paper.">
+
+  <aside class="colophon">
+
+    <div class="han" role="img" aria-label="Mặc Trúc, ink build"><span>墨築</span></div>
+
+    <h1 class="headline">I build in layers.</h1>
+
+    <a class="button" href="#work">See the work <span aria-hidden="true">→</span></a>
+
+
+    <p class="subline">Fullstack developer and UI/UX designer in Vietnam. I design the layer, then build the system: web products, AI chatbots, and the teams who run them.</p>
+    <p class="proof">3 products · 24 screens · 0 stock photos</p>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <ul class="works" id="work" aria-label="Selected work">
+      <li><a href="#"><span class="dot"></span>HR Blockbot <span class="year">2026</span></a></li>
+      <li><a href="#"><span class="dot"></span>Rea Lab <span class="year">2025</span></a></li>
+      <li><a href="#"><span class="dot"></span>Saigon to Coast <span class="year">2025</span></a></li>
+    </ul>
+
+    <div class="contact" id="contact">
+      <span class="status"><i></i>Available for work</span>
+      <a class="mail" href="mailto:hello@yourname.dev">hello@yourname.dev</a>
+    </div>
+
+    <p class="credit">Hoàng · Portfolio 2026 · Ink landscape generated for this concept</p>
+  </aside>
+
+  <div class="seal" aria-hidden="true">墨</div>
+</main>
+</body>
+</html>

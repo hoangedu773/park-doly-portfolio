@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hoàng — I build in layers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#f4efe4;
+  --blue:#0d2a5c;
+  --cobalt:#2b5ca8;
+  --pale:#9db7d8;
+  --seal:#b03a2e;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;height:100%}
+body{background:var(--cream);color:var(--blue);font-family:"Manrope",ui-sans-serif,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.stage{position:relative;width:100%;height:100svh;overflow:clip;background:var(--cream)}
+.painting{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 48%;animation:drift 26s ease-in-out infinite alternate}
+
+.nav{position:absolute;z-index:5;top:32px;left:56px;right:260px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:baseline;gap:12px}
+.wordmark{font-family:"Cormorant Garamond",serif;font-size:24px;font-weight:600;letter-spacing:.02em}
+.mark{font-family:"Cormorant Garamond",serif;font-size:14px;letter-spacing:.08em;color:var(--cobalt)}
+.nav-links{display:flex;align-items:center;gap:26px;font-size:13px;letter-spacing:.03em}
+.nav-links a{opacity:.85;transition:opacity .2s var(--ease)}
+.nav-links a:hover,.nav-links a:focus-visible{opacity:1}
+.nav-links a:focus-visible{outline:1px solid var(--blue);outline-offset:4px}
+.avail{display:flex;align-items:center;gap:7px;font-size:13px;letter-spacing:.03em;color:var(--cobalt)}
+.avail i{width:6px;height:6px;background:var(--cobalt);display:inline-block}
+
+.hero{position:absolute;z-index:4;left:56px;top:118px;width:640px}
+h1{margin:0;font-family:"Cormorant Garamond",serif;font-weight:600;font-size:76px;line-height:.94;letter-spacing:-.02em;animation:fadeUp .9s var(--ease) .1s both}
+.sub{margin:22px 0 0;font-size:16px;line-height:1.5;max-width:38ch;color:var(--blue);animation:fadeUp .9s var(--ease) .25s both}
+.cta{display:inline-flex;align-items:center;gap:14px;height:46px;padding:0 18px;margin:26px 0 0;background:var(--blue);color:var(--cream);font-size:13px;letter-spacing:.04em;animation:fadeUp .9s var(--ease) .35s both;transition:background .2s var(--ease)}
+.cta:hover{background:var(--cobalt)}
+.cta:focus-visible{outline:2px solid var(--seal);outline-offset:3px}
+
+.proof{display:none}
+.proof{display:none}
+.stats{position:absolute;z-index:4;left:56px;bottom:208px;display:flex;gap:64px;animation:fadeUp .9s var(--ease) .5s both}
+.stat .value{display:block;font-family:"Cormorant Garamond",serif;font-size:34px;font-weight:600;line-height:1}
+.stat .label{display:block;margin-top:4px;font-size:13px;letter-spacing:.02em;color:var(--cobalt)}
+
+.works{position:absolute;z-index:4;left:56px;bottom:154px;display:flex;flex-wrap:wrap;gap:28px;animation:fadeUp .9s var(--ease) .58s both}
+.works a{display:inline-flex;align-items:baseline;gap:7px;font-size:14px;color:var(--blue)}
+.works a:hover{color:var(--cobalt)}
+.works .dot{width:5px;height:5px;background:var(--cobalt);display:inline-block;transform:translateY(-2px)}
+.works .year{font-size:13px;color:var(--cobalt)}
+
+.contact{position:absolute;z-index:5;right:56px;bottom:128px;text-align:right;color:var(--cream);animation:fadeUp .9s var(--ease) .7s both}
+.contact .avail{justify-content:flex-end;color:var(--cream);opacity:.92}
+.contact .avail i{background:var(--cream)}
+.mail{display:block;margin-top:6px;font-size:16px;letter-spacing:.01em}
+.mail:hover{text-decoration:underline;text-underline-offset:3px}
+
+.seal{
+  position:absolute;z-index:6;right:56px;bottom:44px;
+  width:66px;height:66px;background:var(--seal);color:var(--cream);
+  display:grid;place-items:center;font-family:"Cormorant Garamond",serif;font-size:34px;line-height:1;
+  transform:rotate(-3deg);animation:stamp .5s var(--ease) .95s both;
+}
+.seal::before{content:"墨";font-family:"Cormorant Garamond",serif;font-size:34px;line-height:1}
+.seal::after{content:"";position:absolute;inset:5px;border:1px solid rgba(244,239,228,.55)}
+
+.credit{position:absolute;z-index:4;left:56px;bottom:18px;font-size:13px;letter-spacing:.02em;color:var(--cobalt);opacity:.8}
+
+@keyframes drift{from{transform:scale(1) translateX(0)}to{transform:scale(1.03) translateX(-.6%)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes stamp{from{opacity:0;transform:rotate(-3deg) scale(1.25)}to{opacity:1;transform:rotate(-3deg) scale(1)}}
+
+@media (max-width:900px){
+  .stage{height:auto;min-height:100svh;overflow:clip}
+  .painting{position:relative;inset:auto;width:100%;height:46svh;object-position:56% 50%;animation:none}
+  .nav{position:relative;top:auto;left:auto;right:auto;padding:20px 22px 0;flex-wrap:wrap;gap:12px}
+  .nav-links{gap:16px;font-size:13px}
+  .avail{display:none}
+  .hero{position:relative;left:auto;top:auto;width:auto;padding:24px 22px 0}
+  h1{font-size:44px}
+  .sub{font-size:15px}
+  .proof{display:block;margin:16px 22px 0;font-size:14px;color:var(--cobalt)}
+  .stats{display:none}
+  .mark{display:none}
+  .stat .value{font-size:28px}
+  .works{position:relative;left:auto;bottom:auto;margin:18px 22px 0;gap:18px}
+  .contact{position:relative;right:auto;bottom:auto;margin:18px 22px 0;text-align:left;color:var(--blue)}
+  .contact .avail{color:var(--cobalt);justify-content:flex-start}
+  .contact .avail{display:flex}
+  .contact .avail i{background:var(--cobalt)}
+  .seal{position:absolute;right:22px;top:calc(46svh - 88px);bottom:auto;width:56px;height:56px;font-size:28px;animation:none}
+  .credit{position:relative;left:auto;bottom:auto;margin:22px 22px 18px;font-size:13px}
+}
+@media (prefers-reduced-motion:reduce){
+  .painting,h1,.sub,.cta,.stats,.works,.contact,.seal{animation:none;transform:none}
+}
+</style>
+</head>
+<body>
+<main class="stage">
+  <img class="painting" src="../public/art/blue-engraving.jpg" width="1536" height="916" alt="Blue engraving of a mountain landscape with a river, bridge, pavilion and a lone boat.">
+
+  <header class="nav">
+    <div class="brand">
+      <span class="wordmark">Hoàng</span>
+      <span class="mark">墨築</span>
+    </div>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <span class="avail"><i></i>Available</span>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>I build in layers.</h1>
+    <p class="sub">Fullstack developer and UI/UX designer in Vietnam. I design the layer, then build the system: web products, AI chatbots, and the teams who run them.</p>
+    <a class="cta" href="#work">See the work <span aria-hidden="true">→</span></a>
+    <p class="proof">3 products · 24 screens · 0 stock photos</p>
+  </section>
+
+  <div class="stats">
+    <div class="stat"><span class="value">3</span><span class="label">Products</span></div>
+    <div class="stat"><span class="value">24</span><span class="label">Screens</span></div>
+    <div class="stat"><span class="value">0</span><span class="label">Stock photos</span></div>
+  </div>
+
+  <div class="works" id="work">
+    <a href="#"><span class="dot"></span>HR Blockbot <span class="year">2026</span></a>
+    <a href="#"><span class="dot"></span>Rea Lab <span class="year">2025</span></a>
+    <a href="#"><span class="dot"></span>Saigon to Coast <span class="year">2025</span></a>
+  </div>
+
+  <div class="contact" id="contact">
+    <span class="avail"><i></i>Available for work</span>
+    <a class="mail" href="mailto:hello@yourname.dev">hello@yourname.dev</a>
+  </div>
+
+  <div class="seal" aria-hidden="true"></div>
+  <p class="credit">Blue engraving generated for this concept · 2026</p>
+</main>
+</body>
+</html>

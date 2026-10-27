@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Great Wave — portfolio concept</title>
+<style>
+@font-face{font-family:"Cabinet Grotesk";src:url("../public/fonts/cabinet-grotesk-400.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Cabinet Grotesk";src:url("../public/fonts/cabinet-grotesk-500.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Cabinet Grotesk";src:url("../public/fonts/cabinet-grotesk-800.woff2") format("woff2");font-weight:800;font-style:normal;font-display:swap}
+
+:root{
+  --paper:#e4dfd4;
+  --paper-2:#ddd6c8;
+  --ink:#101820;
+  --muted:#4f5b63;
+  --indigo:#16324f;
+  --vermilion:#c8402a;
+  --white:#f4f4f0;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --rot:-3.2deg;
+}
+
+*{box-sizing:border-box}
+body{margin:0;padding:0;width:100%;overflow-x:clip}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Cabinet Grotesk",ui-sans-serif,system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+a{color:inherit;text-decoration:none}
+.page{position:relative;width:100%;max-width:100%;height:100svh;min-height:100svh;overflow:clip;padding:0 40px}
+
+.nav{
+  position:relative;z-index:10;animation:fadeDown .6s var(--ease) both;
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+  padding:26px 0 0;
+}
+.mark{font-weight:800;font-size:15px;letter-spacing:.04em;text-transform:uppercase}
+.nav-links{display:flex;gap:28px;justify-content:center}
+.nav-links a{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);transition:color .18s var(--ease)}
+.nav-links a:hover,.nav-links a:focus-visible{color:var(--ink)}
+.nav-cta{justify-self:end;display:inline-flex;align-items:center;gap:10px;height:42px;padding:0 18px;background:var(--indigo);color:var(--white);font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;transition:transform .18s var(--ease),background .18s var(--ease)}
+.nav-cta .short{display:none}
+.nav-cta .short{display:none}
+.nav-cta:hover{transform:translateY(-1px);background:#0d2438}
+.nav-cta:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+
+.hero{position:relative;min-height:calc(100svh - 68px);padding-top:38px}
+
+h1{
+  position:relative;z-index:3;
+  margin:0;
+  font-weight:800;
+  font-size:clamp(84px,11.2vw,172px);
+  line-height:.84;
+  letter-spacing:-.035em;
+  text-transform:uppercase;
+}
+.line{display:block;overflow:hidden;padding-bottom:.06em}
+.line>span{display:block;transform:translateY(112%);animation:rise .9s var(--ease) forwards}
+.line:nth-child(2)>span{animation-delay:.11s}
+.dot{color:var(--vermilion)}
+
+.wave{
+  position:absolute;z-index:1;
+  top:326px;right:-100px;
+  width:min(58vw,860px);
+  margin:0;
+  transform:rotate(var(--rot));
+  transform-origin:70% 20%;
+  animation:printIn 1.1s var(--ease) .18s both;
+}
+.wave img{display:block;width:100%;height:auto;filter:saturate(1.03) contrast(1.02);animation:drift 16s ease-in-out infinite alternate}
+.wave figcaption{
+  position:absolute;left:14px;bottom:14px;
+  background:var(--paper);color:var(--ink);
+  padding:7px 9px;
+  font-size:13px;line-height:1.2;letter-spacing:0;
+}
+.wave figcaption::before{
+  content:"";display:inline-block;width:8px;height:8px;background:var(--vermilion);margin-right:7px;
+}
+
+.lede{
+  position:absolute;z-index:4;animation:fadeUp .7s var(--ease) .45s both;
+  left:40px;bottom:104px;
+  width:300px;margin:0;
+  font-size:16px;line-height:1.5;
+}
+.facts{
+  position:absolute;z-index:4;animation:fadeUp .7s var(--ease) .5s both;
+  left:40px;bottom:64px;
+  margin:0;
+  font-size:13px;letter-spacing:.04em;color:var(--muted);
+}
+.cta{
+  position:absolute;z-index:5;animation:fadeUp .7s var(--ease) .55s both;
+  right:64px;bottom:56px;
+  display:inline-flex;align-items:center;gap:14px;
+  height:56px;padding:0 24px;
+  background:var(--indigo);color:var(--white);
+  font-size:14px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;
+  transition:transform .18s var(--ease),background .18s var(--ease);
+}
+.cta:hover{transform:translateY(-2px);background:#0d2438}
+.cta:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.cta svg{display:block}
+
+.credit{
+  position:absolute;z-index:4;animation:fadeUp .7s var(--ease) .6s both;
+  left:40px;bottom:22px;
+  margin:0;
+  font-size:13px;line-height:1.35;color:var(--muted);
+  max-width:300px;
+}
+.credit a{text-decoration:underline;text-underline-offset:3px}
+
+.spine{
+  display:none;
+}
+
+.reg{position:absolute;width:14px;height:14px;opacity:.35;z-index:6;pointer-events:none}
+.reg::before,.reg::after{content:"";position:absolute;background:var(--ink)}
+.reg::before{left:50%;top:0;width:1px;height:100%}
+.reg::after{top:50%;left:0;height:1px;width:100%}
+.reg.tl{left:12px;top:12px}.reg.tr{right:12px;top:12px}
+.reg.bl{left:12px;bottom:12px}.reg.br{right:12px;bottom:12px}
+
+@keyframes rise{to{transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes drift{from{transform:scale(1)}to{transform:scale(1.035) translateX(-1.2%)}}
+@keyframes printIn{from{opacity:0;transform:rotate(var(--rot)) translateY(26px) scale(.985)}to{opacity:1;transform:rotate(var(--rot)) translateY(0) scale(1)}}
+
+@media (max-width:980px){
+  .page{padding:0 24px;height:auto;min-height:100svh;overflow:clip}
+  .nav{grid-template-columns:1fr auto}
+  .nav-links{display:none}
+  .hero{min-height:0;padding-top:30px}
+  h1{font-size:15.4vw}
+  .wave{position:relative;top:auto;right:auto;width:92vw;margin:26px 0 0 -8px;transform:rotate(-2.4deg);animation:none}
+  .lede,.facts,.cta,.credit,.spine{position:relative;left:auto;right:auto;bottom:auto;top:auto}
+  .lede{margin:26px 0 0;width:auto;max-width:34ch;font-size:16px}
+  .facts{margin:14px 0 0}
+  .cta{margin:26px 0 0;width:100%;justify-content:space-between}
+  .credit{margin:30px 0 18px;font-size:13px;max-width:34ch}
+  .spine{display:none}
+  .reg{display:none}
+}
+@media (max-width:480px){
+  .page{padding:0 20px}
+  .nav-cta .long{display:none}
+  .nav-cta .short{display:inline}
+  .wave{width:100%;margin-left:0}
+  .nav-cta{height:40px;padding:0 14px;font-size:12px}
+}
+@media (prefers-reduced-motion:reduce){
+  .line>span,.wave,.nav,.lede,.facts,.cta,.credit,.wave img{animation:none;transform:none}
+  .wave{transform:rotate(var(--rot))}
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <span class="reg tl"></span><span class="reg tr"></span><span class="reg bl"></span><span class="reg br"></span>
+  <header class="nav">
+    <a class="mark" href="#">Hoang</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+    </nav>
+    <a class="nav-cta" href="#contact"><span class="long">Book a call</span><span class="short">Book</span></a>
+  </header>
+
+  <main class="hero">
+    <h1>
+      <span class="line"><span>I build</span></span>
+      <span class="line"><span>in layers<span class="dot">.</span></span></span>
+    </h1>
+
+    <figure class="wave">
+      <img src="../public/art/great-wave.jpg" width="3859" height="2594" alt="Hokusai's Great Wave off Kanagawa, a woodblock print of a cresting wave over three boats with Mount Fuji in the distance.">
+      <figcaption>Hokusai, 1831</figcaption>
+    </figure>
+
+    <p class="lede">Fullstack developer and UI/UX designer in Vietnam. I design the layer, then build the system: web products, AI chatbots, and the teams who run them.</p>
+    <p class="facts">3 products · 24 screens · 0 stock photos</p>
+
+    <a class="cta" href="#work">
+      See the work
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 9h11M10 4l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <p class="credit">Katsushika Hokusai, <a href="https://www.metmuseum.org/art/collection/search/45434" rel="noopener">Under the Wave off Kanagawa</a>, 1830–32. The Met, public domain.</p>
+  </main>
+</div>
+</body>
+</html>

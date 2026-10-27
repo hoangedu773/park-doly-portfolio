@@ -1,0 +1,12 @@
+node_modules/
+.workbuddy-ai/
+.next/
+.next-*/
+out/
+.vercel/
+.env*
+!.env.example
+.DS_Store
+.taste-skill/
+.chrome-*/
+*.log
