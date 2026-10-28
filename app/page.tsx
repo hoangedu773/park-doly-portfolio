@@ -130,7 +130,7 @@ export default function Home() {
 
       <section className={styles.experience} id="experience" aria-labelledby="experience-title">
         <div className={styles.sectionHead}>
-          <h2 id="experience-title">Closed-source work.</h2>
+          <h2 id="experience-title">Work I can&rsquo;t show.</h2>
           <p>Most of what I build for companies never appears on GitHub. This is the part I can describe.</p>
         </div>
 
@@ -139,7 +139,7 @@ export default function Home() {
             <li key={entry.title} className={styles.role}>
               <div className={styles.roleHead}>
                 <h3>{entry.title}</h3>
-                <span className={styles.roleTime}>{entry.timeline}</span>
+                {entry.timeline && <span className={styles.roleTime}>{entry.timeline}</span>}
               </div>
               <p className={styles.roleMeta}>
                 {entry.role} · {entry.context}
@@ -157,7 +157,7 @@ export default function Home() {
         </ol>
 
         <p className={styles.workNote}>
-          More client work sits under NDA. <a href={whatsapp.url} target="_blank" rel="noreferrer">Ask on WhatsApp</a> for a walkthrough.
+          Most of it sits under NDA. <a href={whatsapp.url} target="_blank" rel="noreferrer">Ask on WhatsApp</a> for a walkthrough.
         </p>
       </section>
 

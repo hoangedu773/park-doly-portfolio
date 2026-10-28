@@ -168,25 +168,35 @@
 
 /* experience */
 
+.jobList {
+  break-inside: auto;
+}
+
 .job {
   display: grid;
   gap: 1mm;
+  break-inside: avoid;
 }
 
 .job + .job {
-  margin-top: 4mm;
-  padding-top: 4mm;
+  margin-top: 3mm;
+  padding-top: 3mm;
   border-top: 1px solid var(--line);
 }
 
+.jobList {
+  break-inside: auto;
+}
+
 .job {
   display: grid;
   gap: 1mm;
+  break-inside: avoid;
 }
 
 .job + .job {
-  margin-top: 4mm;
-  padding-top: 4mm;
+  margin-top: 3mm;
+  padding-top: 3mm;
   border-top: 1px solid var(--line);
 }
 
@@ -194,6 +204,13 @@
   font-size: 16px;
   letter-spacing: -0.02em;
   line-height: 1.1;
+}
+
+.jobNote {
+  margin-bottom: 2.6mm;
+  font-size: 8.5px;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
 }
 
 .jobRole {
@@ -216,7 +233,7 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 2.6mm;
+  gap: 2.2mm;
 }
 
 .points li {

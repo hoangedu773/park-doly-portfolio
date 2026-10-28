@@ -11,27 +11,6 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-const work = [
-  {
-    name: "HR Blockbot",
-    year: "2026",
-    line: "HR policy chatbot: document ingestion, retrieval answers, and a web interface for staff questions.",
-    stack: "Python · retrieval · web UI",
-  },
-  {
-    name: "Rea Lab",
-    year: "2025",
-    line: "Product site built end to end — interface design, component system, and deployment.",
-    stack: "Next.js · TypeScript · CSS",
-  },
-  {
-    name: "Saigon to Coast",
-    year: "2025",
-    line: "Editorial web build: layout, typography, and a small content model the owner can extend.",
-    stack: "Next.js · React · TypeScript",
-  },
-];
-
 const stack = [
   "TypeScript",
   "JavaScript",
@@ -111,44 +90,26 @@ export default function CVPage() {
               </p>
             </section>
 
-            <section className={styles.block}>
+            <section className={`${styles.block} ${styles.jobList}`}>
               <h2 className={styles.blockTitle}>Experience</h2>
+              <p className={styles.jobNote}>Closed-source engagements; code and walkthrough available on request.</p>
               {experience.map((entry) => (
                 <article key={entry.title} className={styles.job}>
                   <div className={styles.workHead}>
                     <h3 className={styles.jobTitle}>{entry.title}</h3>
-                    <span className={styles.year}>{entry.timeline}</span>
+                    {entry.timeline && <span className={styles.year}>{entry.timeline}</span>}
                   </div>
-                  <p className={styles.jobRole}>
-                    {entry.role} · {entry.context}
-                  </p>
-                  <p className={styles.techLine}>{entry.stack.join(" · ")}</p>
+                  <p className={styles.jobRole}>{entry.role}</p>
+                  <p className={styles.techLine}>{entry.stack.slice(0, 5).join(" · ")}</p>
                   <ul className={styles.points}>
-                    {entry.points.map((point) => (
-                      <li key={point.lead}>
-                        <strong>{point.lead}.</strong> {point.body}
-                      </li>
+                    {entry.cv.map((line) => (
+                      <li key={line}>{line}</li>
                     ))}
                   </ul>
                 </article>
               ))}
             </section>
 
-            <section className={styles.block}>
-              <h2 className={styles.blockTitle}>Selected work</h2>
-              <ol className={styles.workList}>
-                {work.map((item) => (
-                  <li key={item.name}>
-                    <div className={styles.workHead}>
-                      <h3>{item.name}</h3>
-                      <span className={styles.year}>{item.year}</span>
-                    </div>
-                    <p>{item.line}</p>
-                    <p className={styles.stackLine}>{item.stack}</p>
-                  </li>
-                ))}
-              </ol>
-            </section>
           </div>
         </div>
 
