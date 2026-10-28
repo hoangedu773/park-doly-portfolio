@@ -518,6 +518,10 @@
   letter-spacing: -0.045em;
 }
 
+.experience h2 {
+  letter-spacing: -0.045em;
+}
+
 .roles {
   margin: clamp(40px, 6vw, 76px) 0 0;
   padding: 0;
