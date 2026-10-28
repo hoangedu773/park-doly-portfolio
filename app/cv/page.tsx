@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { experience } from "@/content/experience";
 import { github, siteUrl, whatsapp } from "@/content/site";
 import styles from "./cv.module.css";
 
@@ -8,36 +9,6 @@ export const metadata: Metadata = {
   description:
     "One-page CV for Park Doly, fullstack developer and UI/UX designer in Vietnam. Experience, selected work, and stack.",
   robots: { index: true, follow: true },
-};
-
-const experience = {
-  title: "Enterprise workforce & AI copilot platform",
-  role: "Fullstack software engineer",
-  timeline: "Sep 2026 — Present",
-  stack:
-    "React 18 · TypeScript · Vite · Node.js · Express · Python (FastAPI) · MongoDB Atlas · Atlas Vector Search · Socket.IO · Tailwind CSS",
-  points: [
-    {
-      lead: "Scalable React SPA architecture",
-      body: "Engineered a high-performance SPA with React 18 and Vite for a retail network of 140+ locations managing 2,400+ active workforce profiles, reducing dashboard load times and holding sub-100 ms UI interactions through targeted state caching.",
-    },
-    {
-      lead: "End-to-end optimistic concurrency",
-      body: "Atomic version-checked mutations on MongoDB paired with frontend optimistic cache recovery and 409 Conflict handling, eliminating race conditions and lost updates during concurrent multi-manager shift scheduling.",
-    },
-    {
-      lead: "Real-time event engine",
-      body: "Bi-directional Socket.IO pipeline with REST fallback for instant shift alerts, plus client reconnection routines and idempotency dedupe keys (clientMessageId).",
-    },
-    {
-      lead: "In-app AI copilot (policy RAG)",
-      body: "Python/FastAPI sidecar with MongoDB Atlas Vector Search (384-dimension cosine index) for internal policy Q&A, and a streaming chat UI with verifiable citation metadata (document / version / source).",
-    },
-    {
-      lead: "Authentication hardening",
-      body: "Refresh token family rotation backed by MongoDB TTL indexes for auto-revocation, Argon2id password hashing, and AES-256-GCM credential encryption.",
-    },
-  ],
 };
 
 const work = [
@@ -142,19 +113,25 @@ export default function CVPage() {
 
             <section className={styles.block}>
               <h2 className={styles.blockTitle}>Experience</h2>
-              <div className={styles.workHead}>
-                <h3 className={styles.jobTitle}>{experience.title}</h3>
-                <span className={styles.year}>{experience.timeline}</span>
-              </div>
-              <p className={styles.jobRole}>{experience.role}</p>
-              <p className={styles.techLine}>{experience.stack}</p>
-              <ul className={styles.points}>
-                {experience.points.map((point) => (
-                  <li key={point.lead}>
-                    <strong>{point.lead}.</strong> {point.body}
-                  </li>
-                ))}
-              </ul>
+              {experience.map((entry) => (
+                <article key={entry.title} className={styles.job}>
+                  <div className={styles.workHead}>
+                    <h3 className={styles.jobTitle}>{entry.title}</h3>
+                    <span className={styles.year}>{entry.timeline}</span>
+                  </div>
+                  <p className={styles.jobRole}>
+                    {entry.role} · {entry.context}
+                  </p>
+                  <p className={styles.techLine}>{entry.stack.join(" · ")}</p>
+                  <ul className={styles.points}>
+                    {entry.points.map((point) => (
+                      <li key={point.lead}>
+                        <strong>{point.lead}.</strong> {point.body}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
             </section>
 
             <section className={styles.block}>

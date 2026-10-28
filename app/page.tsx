@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { experience } from "@/content/experience";
 import { projects } from "@/content/projects";
 import { github, whatsapp } from "@/content/site";
 import styles from "./page.module.css";
@@ -41,6 +42,7 @@ export default function Home() {
           <nav className={styles.navLinks} aria-label="Primary">
             <a href="#work">Work</a>
             <a href="#services">Services</a>
+            <a href="#experience">Experience</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
           </nav>
@@ -124,6 +126,39 @@ export default function Home() {
             <p className={styles.capabilities}>Next.js · React · TypeScript · UI/UX · AI retrieval · Team training</p>
           </div>
         </div>
+      </section>
+
+      <section className={styles.experience} id="experience" aria-labelledby="experience-title">
+        <div className={styles.sectionHead}>
+          <h2 id="experience-title">Closed-source work.</h2>
+          <p>Most of what I build for companies never appears on GitHub. This is the part I can describe.</p>
+        </div>
+
+        <ol className={styles.roles}>
+          {experience.map((entry) => (
+            <li key={entry.title} className={styles.role}>
+              <div className={styles.roleHead}>
+                <h3>{entry.title}</h3>
+                <span className={styles.roleTime}>{entry.timeline}</span>
+              </div>
+              <p className={styles.roleMeta}>
+                {entry.role} · {entry.context}
+              </p>
+              <ul className={styles.rolePoints}>
+                {entry.points.map((point) => (
+                  <li key={point.lead}>
+                    <strong>{point.lead}.</strong> {point.body}
+                  </li>
+                ))}
+              </ul>
+              <p className={styles.roleStack}>{entry.stack.join(" · ")}</p>
+            </li>
+          ))}
+        </ol>
+
+        <p className={styles.workNote}>
+          More client work sits under NDA. <a href={whatsapp.url} target="_blank" rel="noreferrer">Ask on WhatsApp</a> for a walkthrough.
+        </p>
       </section>
 
       <section className={styles.contact} id="contact" aria-labelledby="contact-title">

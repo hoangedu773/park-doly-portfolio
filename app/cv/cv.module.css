@@ -168,6 +168,28 @@
 
 /* experience */
 
+.job {
+  display: grid;
+  gap: 1mm;
+}
+
+.job + .job {
+  margin-top: 4mm;
+  padding-top: 4mm;
+  border-top: 1px solid var(--line);
+}
+
+.job {
+  display: grid;
+  gap: 1mm;
+}
+
+.job + .job {
+  margin-top: 4mm;
+  padding-top: 4mm;
+  border-top: 1px solid var(--line);
+}
+
 .jobTitle {
   font-size: 16px;
   letter-spacing: -0.02em;

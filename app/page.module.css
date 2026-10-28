@@ -24,7 +24,7 @@
   display: inline-flex;
   align-items: center;
   font-family: var(--font-display);
-  font-size: 25px;
+  font-size: 21.2px;
   font-weight: 600;
   font-variation-settings: "opsz" 40, "SOFT" 80, "WONK" 1;
   letter-spacing: -0.04em;
@@ -38,7 +38,7 @@
   display: flex;
   align-items: center;
   gap: clamp(12px, 2.4vw, 36px);
-  font-size: 14px;
+  font-size: 11.9px;
 }
 
 .navLinks a {
@@ -75,7 +75,7 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  font-size: clamp(112px, 19.2vw, 296px);
+  font-size: clamp(78.4px, 13.4vw, 207.2px);
   line-height: 0.72;
   letter-spacing: -0.075em;
   font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
@@ -118,7 +118,7 @@
 .heroIntro {
   max-width: 19ch;
   font-family: var(--font-display);
-  font-size: clamp(26px, 2.4vw, 38px);
+  font-size: clamp(22.1px, 2vw, 32.3px);
   font-variation-settings: "opsz" 60, "SOFT" 80, "WONK" 1;
   line-height: 1.08;
   letter-spacing: -0.035em;
@@ -128,7 +128,7 @@
   display: grid;
   gap: 6px;
   color: var(--paper-soft);
-  font-size: 15px;
+  font-size: 12.8px;
 }
 
 .heroAction {
@@ -142,7 +142,7 @@
   align-items: center;
   gap: 9px;
   color: var(--paper-soft);
-  font-size: 14px;
+  font-size: 11.9px;
 }
 
 .availability i {
@@ -163,7 +163,7 @@
   gap: 20px;
   padding: 0 22px;
   border-radius: var(--radius-pill);
-  font-size: 14px;
+  font-size: 11.9px;
   font-weight: 600;
   white-space: nowrap;
   transition: transform 160ms var(--ease-snappy), background-color 180ms var(--ease-out), color 180ms var(--ease-out);
@@ -207,7 +207,7 @@
 .servicesHead h2,
 .about h2,
 .contact h2 {
-  font-size: clamp(68px, 9.6vw, 148px);
+  font-size: clamp(47.6px, 6.7vw, 103.6px);
   line-height: 0.85;
   letter-spacing: -0.065em;
   font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
@@ -217,7 +217,7 @@
 .servicesHead p {
   max-width: 37ch;
   color: var(--ink-soft);
-  font-size: 18px;
+  font-size: 15.3px;
   line-height: 1.55;
 }
 
@@ -243,7 +243,7 @@
 
 .workName {
   font-family: var(--font-display);
-  font-size: clamp(40px, 4.8vw, 72px);
+  font-size: clamp(28px, 3.4vw, 50.4px);
   font-weight: 600;
   font-variation-settings: "opsz" 100, "SOFT" 90, "WONK" 1;
   line-height: 0.95;
@@ -254,7 +254,7 @@
 .workStatus,
 .workYear {
   color: var(--ink-soft);
-  font-size: 14px;
+  font-size: 11.9px;
 }
 
 .workYear {
@@ -269,7 +269,7 @@
 .workNote {
   margin-top: 28px;
   color: var(--ink-soft);
-  font-size: 15px;
+  font-size: 12.8px;
 }
 
 .workNote a {
@@ -319,21 +319,21 @@
 }
 
 .service h3 {
-  font-size: clamp(30px, 3vw, 44px);
+  font-size: clamp(21px, 2.1vw, 30.8px);
   line-height: 1;
 }
 
 .service p {
   max-width: 46ch;
   color: var(--paper-soft);
-  font-size: 17px;
+  font-size: 14.4px;
   line-height: 1.6;
 }
 
 .time {
   padding-top: 5px;
   color: var(--paper-soft);
-  font-size: 14px;
+  font-size: 11.9px;
   text-align: right;
 }
 
@@ -362,12 +362,12 @@
 
 .facts dt {
   color: var(--ink-soft);
-  font-size: 14px;
+  font-size: 11.9px;
 }
 
 .facts dd {
   margin: 5px 0 0;
-  font-size: 17px;
+  font-size: 14.4px;
 }
 
 .aboutCopy {
@@ -377,7 +377,7 @@
 
 .aboutCopy > p {
   max-width: 54ch;
-  font-size: clamp(19px, 1.7vw, 25px);
+  font-size: clamp(16.1px, 1.4vw, 21.2px);
   line-height: 1.5;
 }
 
@@ -385,7 +385,7 @@
   margin-top: 16px;
   color: var(--ink-soft);
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: 11.9px;
   line-height: 1.7;
 }
 
@@ -405,7 +405,7 @@
 
 .contactPrompt {
   margin-bottom: 24px;
-  font-size: 18px;
+  font-size: 15.3px;
 }
 
 .contact h2 {
@@ -422,7 +422,7 @@
 
 .contactBottom > p {
   max-width: 43ch;
-  font-size: 18px;
+  font-size: 15.3px;
   line-height: 1.55;
 }
 
@@ -437,7 +437,7 @@
   min-height: 44px;
   display: inline-flex;
   align-items: center;
-  font-size: 15px;
+  font-size: 12.8px;
   border-bottom: 1px solid currentColor;
   padding-bottom: 2px;
 }
@@ -456,7 +456,7 @@
   gap: 24px;
   align-items: center;
   color: var(--paper-soft);
-  font-size: 14px;
+  font-size: 11.9px;
 }
 
 .footerTop nav {
@@ -481,7 +481,7 @@
 .bigName {
   margin: clamp(56px, 8vw, 108px) 0 32px;
   font-family: var(--font-display);
-  font-size: clamp(70px, 16.2vw, 248px);
+  font-size: clamp(49px, 11.3vw, 173.6px);
   font-weight: 600;
   font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
   line-height: 0.8;
@@ -507,6 +507,94 @@
 
 .footerBottom span:last-child {
   text-align: right;
+}
+
+.experience {
+  padding: var(--section-y) var(--gutter);
+  background: var(--paper-deep);
+}
+
+.experience h2 {
+  letter-spacing: -0.045em;
+}
+
+.roles {
+  margin: clamp(40px, 6vw, 76px) 0 0;
+  padding: 0;
+  list-style: none;
+  border-bottom: 1px solid var(--line);
+}
+
+.role {
+  display: grid;
+  gap: 12px;
+  padding: 34px 0;
+  border-top: 1px solid var(--line);
+}
+
+.roleHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.roleHead h3 {
+  font-size: clamp(24px, 2.4vw, 36px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.roleTime {
+  color: var(--ink-soft);
+  font-size: 12.8px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.roleMeta {
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.rolePoints {
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 9px;
+  max-width: 82ch;
+}
+
+.rolePoints li {
+  position: relative;
+  padding-left: 20px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.rolePoints li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 9px;
+  height: 2px;
+  background: var(--accent);
+}
+
+.rolePoints strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.roleStack {
+  color: #9e3d24;
+  font-size: 11.9px;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
 }
 
 @keyframes nameIn {
@@ -629,8 +717,12 @@
   }
 
   .navLinks {
-    gap: 14px;
-    font-size: 13px;
+    gap: 12px;
+    font-size: 11.5px;
+  }
+
+  .navLinks a {
+    min-width: 0;
   }
 
   .heroStage {
@@ -639,7 +731,7 @@
   }
 
   .name {
-    font-size: clamp(96px, 29vw, 180px);
+    font-size: clamp(67.2px, 20.3vw, 126px);
     line-height: 0.77;
   }
 
@@ -661,7 +753,7 @@
 
   .heroIntro {
     max-width: 17ch;
-    font-size: 29px;
+    font-size: 24.6px;
   }
 
   .heroAction {
@@ -674,7 +766,7 @@
   .servicesHead h2,
   .about h2,
   .contact h2 {
-    font-size: clamp(58px, 18vw, 100px);
+    font-size: clamp(40.6px, 12.6vw, 70px);
   }
 
   .sectionHead,
@@ -684,7 +776,7 @@
 
   .sectionHead p,
   .servicesHead p {
-    font-size: 17px;
+    font-size: 14.4px;
   }
 
   .workLink {
@@ -695,7 +787,7 @@
   }
 
   .workName {
-    font-size: clamp(38px, 12vw, 58px);
+    font-size: clamp(26.6px, 8.4vw, 40.6px);
   }
 
   .workStatus {
@@ -718,11 +810,11 @@
   }
 
   .service h3 {
-    font-size: 35px;
+    font-size: 24.5px;
   }
 
   .service p {
-    font-size: 16px;
+    font-size: 13.6px;
   }
 
   .time {
@@ -741,7 +833,7 @@
   }
 
   .aboutCopy > p {
-    font-size: 20px;
+    font-size: 17px;
   }
 
   .contact {
@@ -770,7 +862,7 @@
   }
 
   .bigName {
-    font-size: 18.5vw;
+    font-size: 12.9vw;
   }
 }
 
