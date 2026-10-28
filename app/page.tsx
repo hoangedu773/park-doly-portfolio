@@ -143,6 +143,7 @@ export default function Home() {
           <nav aria-label="Footer">
             <a href="#work">Work</a>
             <a href="#services">Services</a>
+            <Link href="/cv">CV</Link>
             <a href="https://github.com/hoangedu773" target="_blank" rel="noreferrer">GitHub</a>
           </nav>
           <a href="#hero-title">Back to top ↑</a>
@@ -150,6 +151,9 @@ export default function Home() {
         <p className={styles.bigName} aria-hidden="true">Park Doly</p>
         <div className={styles.footerBottom}>
           <span>© 2026 Park Doly</span>
+          <a className={styles.footerLink} href="https://github.com/hoangedu773" target="_blank" rel="noreferrer">
+            github.com/hoangedu773
+          </a>
           <span>Designed and built with Next.js</span>
         </div>
       </footer>

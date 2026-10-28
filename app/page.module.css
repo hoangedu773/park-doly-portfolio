@@ -473,9 +473,19 @@
 }
 
 .footerBottom {
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr auto 1fr;
   padding-top: 24px;
   border-top: 1px solid var(--line-dark);
+}
+
+.footerLink {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-self: center;
+  color: var(--paper);
+  border-bottom: 1px solid var(--line-dark);
+  padding-bottom: 1px;
 }
 
 .footerBottom span:last-child {
