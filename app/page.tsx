@@ -16,9 +16,9 @@ const services = [
     time: "Typical scope · 1–2 weeks",
   },
   {
-    name: "AI chatbot + training",
-    copy: "A retrieval chatbot for your own documents, workflow automation, and a workshop for your team.",
-    time: "Typical scope · 1 week",
+    name: "AI automation",
+    copy: "Workflow automation for your staff plus a retrieval assistant on your own documents, with a handover your team can run.",
+    time: "Typical scope · 1–2 weeks",
   },
 ];
 
@@ -78,7 +78,7 @@ export default function Home() {
       <section className={styles.work} id="work" aria-labelledby="work-title">
         <div className={styles.sectionHead}>
           <h2 id="work-title">Selected work</h2>
-          <p>Three projects, each being documented with the real decisions, constraints, and craft behind them.</p>
+          <p>Three builds that live in public. The rest of the work sits under NDA, further down.</p>
         </div>
 
         <ul className={styles.workList}>
@@ -86,7 +86,7 @@ export default function Home() {
             <li key={project.slug}>
               <Link href={`/work/${project.slug}`} className={styles.workLink}>
                 <span className={styles.workName}>{project.name}</span>
-                <span className={styles.workStatus}>Case study in progress</span>
+                <span className={styles.workStatus}>{project.summary}</span>
                 <span className={styles.workYear}>{project.year}</span>
                 <span className={styles.workArrow}><Arrow /></span>
               </Link>
@@ -121,9 +121,8 @@ export default function Home() {
             <div><dt>Working style</dt><dd>Design-minded, code-driven</dd></div>
           </dl>
           <div className={styles.aboutCopy}>
-            <p>I am Park Doly, a fullstack developer who cares about how a product feels as much as how it works. I work with founders and small teams to turn a rough idea into something people can use.</p>
-            <p>That means fewer handoffs and a tighter loop: understand the problem, shape the experience, build the system, and stay for the details that make it hold together.</p>
-            <p className={styles.capabilities}>Next.js · React · TypeScript · UI/UX · AI retrieval · Team training</p>
+            <p>I am Park Doly, a fullstack developer who cares how a product feels as much as how it works. Founders and small teams bring me a rough idea; I take it from the first flow to the deployed system.</p>
+            <p className={styles.capabilities}>Next.js · React · TypeScript · Python · UI/UX · AI retrieval · Workflow automation</p>
           </div>
         </div>
       </section>
@@ -141,16 +140,16 @@ export default function Home() {
                 <h3>{entry.title}</h3>
                 {entry.timeline && <span className={styles.roleTime}>{entry.timeline}</span>}
               </div>
-              <p className={styles.roleMeta}>
-                {entry.role} · {entry.context}
-              </p>
-              <ul className={styles.rolePoints}>
-                {entry.points.map((point) => (
-                  <li key={point.lead}>
-                    <strong>{point.lead}.</strong> {point.body}
-                  </li>
+              <p className={styles.roleMeta}>{entry.role}</p>
+              <dl className={styles.metrics}>
+                {entry.metrics.map((metric) => (
+                  <div key={metric.label}>
+                    <dt>{metric.value}</dt>
+                    <dd>{metric.label}</dd>
+                  </div>
                 ))}
-              </ul>
+              </dl>
+              <p className={styles.roleSummary}>{entry.summary}</p>
               <p className={styles.roleStack}>{entry.stack.join(" · ")}</p>
             </li>
           ))}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { experience } from "@/content/experience";
 import { github, siteUrl, whatsapp } from "@/content/site";
+import { CvSheet } from "./CvSheet";
 import styles from "./cv.module.css";
 
 export const metadata: Metadata = {
@@ -29,7 +30,7 @@ const stack = [
 export default function CVPage() {
   return (
     <main className={styles.page}>
-      <div className={styles.sheet}>
+      <CvSheet>
         <header className={styles.head}>
           <p className={styles.eyebrow}>Curriculum vitae</p>
           <h1 className={styles.name}>Park Doly</h1>
@@ -85,8 +86,8 @@ export default function CVPage() {
             <section className={styles.block}>
               <h2 className={styles.blockTitle}>Profile</h2>
               <p className={styles.lead}>
-                I shape the interface and build what sits beneath it: React and Next.js front ends, Python and
-                Node services, and retrieval chatbots that answer from a company&apos;s own documents.
+                I build the product and the automation behind it: React and Next.js front ends, Python and Node
+                services, retrieval assistants, and workflow automation for teams.
               </p>
             </section>
 
@@ -99,8 +100,9 @@ export default function CVPage() {
                     <h3 className={styles.jobTitle}>{entry.title}</h3>
                     {entry.timeline && <span className={styles.year}>{entry.timeline}</span>}
                   </div>
-                  <p className={styles.jobRole}>{entry.role}</p>
-                  <p className={styles.techLine}>{entry.stack.slice(0, 5).join(" · ")}</p>
+                  <p className={styles.jobRole}>
+                    {entry.role} · {entry.stack.slice(0, 4).join(" · ")}
+                  </p>
                   <ul className={styles.points}>
                     {entry.cv.map((line) => (
                       <li key={line}>{line}</li>
@@ -108,6 +110,19 @@ export default function CVPage() {
                   </ul>
                 </article>
               ))}
+            </section>
+
+            <section className={styles.block}>
+              <h2 className={styles.blockTitle}>Selected work</h2>
+              <ul className={styles.alsoList}>
+                <li>
+                  <strong>HR Blockbot</strong> · 2026 — HR workflow automation for staff across departments, plus
+                  an AI policy assistant that answers from company documents.
+                </li>
+                <li>
+                  <strong>Rea Lab</strong> · 2025 — product site, design to deployment.
+                </li>
+              </ul>
             </section>
 
           </div>
@@ -123,10 +138,11 @@ export default function CVPage() {
           </a>
           <span>Updated October 2026</span>
         </footer>
-      </div>
+      </CvSheet>
 
       <p className={styles.screenNote}>
-        Print or save as PDF from the browser (A4, one page). <Link href="/">← Back to portfolio</Link>
+        <span>Print or save as PDF from the browser (A4, one page).</span>
+        <Link href="/">← Back to portfolio</Link>
       </p>
     </main>
   );

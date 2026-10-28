@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: project.name,
-    description: `A case study for ${project.name} by Park Doly, fullstack developer.`,
+    description: `${project.name} — ${project.summary}`,
   };
 }
 
@@ -52,8 +52,8 @@ export default async function ProjectPage({ params }: Props) {
       <section className={styles.body} aria-labelledby="story-title">
         <div className={styles.story}>
           <h2 id="story-title">The full story is being documented.</h2>
+          <p>{project.summary}</p>
           <p>A detailed walkthrough of this project is being prepared with the actual problem, constraints, implementation decisions, and outcome.</p>
-          <p>Ask for a live demo or a technical walkthrough in the meantime.</p>
           <a className={styles.cta} href="https://github.com/hoangedu773" target="_blank" rel="noreferrer">
             Ask for a walkthrough <span aria-hidden="true">→</span>
           </a>
