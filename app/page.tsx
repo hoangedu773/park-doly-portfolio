@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { projects } from "@/content/projects";
+import { github, whatsapp } from "@/content/site";
 import styles from "./page.module.css";
 
 const services = [
@@ -130,10 +131,15 @@ export default function Home() {
         <h2 id="contact-title">Let’s make it useful.</h2>
         <div className={styles.contactBottom}>
           <p>Tell me what you are making, where it is stuck, and what done looks like.</p>
-          <a className={styles.buttonDark} href="https://github.com/hoangedu773" target="_blank" rel="noreferrer">
-            Start a conversation
-            <Arrow />
-          </a>
+          <div className={styles.contactActions}>
+            <a className={styles.buttonDark} href={whatsapp.url} target="_blank" rel="noreferrer">
+              Message on WhatsApp
+              <Arrow />
+            </a>
+            <a className={styles.contactAlt} href={github.url} target="_blank" rel="noreferrer">
+              or read the code on GitHub
+            </a>
+          </div>
         </div>
       </section>
 
@@ -144,15 +150,16 @@ export default function Home() {
             <a href="#work">Work</a>
             <a href="#services">Services</a>
             <Link href="/cv">CV</Link>
-            <a href="https://github.com/hoangedu773" target="_blank" rel="noreferrer">GitHub</a>
+            <a href={whatsapp.url} target="_blank" rel="noreferrer">WhatsApp</a>
+            <a href={github.url} target="_blank" rel="noreferrer">GitHub</a>
           </nav>
           <a href="#hero-title">Back to top ↑</a>
         </div>
         <p className={styles.bigName} aria-hidden="true">Park Doly</p>
         <div className={styles.footerBottom}>
           <span>© 2026 Park Doly</span>
-          <a className={styles.footerLink} href="https://github.com/hoangedu773" target="_blank" rel="noreferrer">
-            github.com/hoangedu773
+          <a className={styles.footerLink} href={whatsapp.url} target="_blank" rel="noreferrer">
+            WhatsApp {whatsapp.handle}
           </a>
           <span>Designed and built with Next.js</span>
         </div>

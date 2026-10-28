@@ -10,3 +10,14 @@ export const siteUrl =
     : previewHost
       ? `https://${previewHost}`
       : "https://park-doly-portfolio.vercel.app");
+
+// WhatsApp username links resolve without exposing a phone number.
+export const whatsapp = {
+  handle: "@saigontocoast",
+  url: "https://wa.me/saigontocoast",
+};
+
+export const github = {
+  handle: "hoangedu773",
+  url: "https://github.com/hoangedu773",
+};
