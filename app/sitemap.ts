@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
 import { projects } from "@/content/projects";
-
-const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://park-doly.vercel.app";
+import { siteUrl as base } from "@/content/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
