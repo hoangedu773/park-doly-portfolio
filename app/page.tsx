@@ -78,7 +78,7 @@ export default function Home() {
       <section className={styles.work} id="work" aria-labelledby="work-title">
         <div className={styles.sectionHead}>
           <h2 id="work-title">Selected work</h2>
-          <p>Three builds that live in public. The rest of the work sits under NDA, further down.</p>
+          <p>Two builds that live in public. The rest of the work sits under NDA, further down.</p>
         </div>
 
         <ul className={styles.workList}>

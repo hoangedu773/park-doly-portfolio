@@ -13,12 +13,6 @@ export const projects: Project[] = [
     summary: "Workflow automation for staff across departments, with an AI policy assistant that answers in context.",
   },
   {
-    slug: "rea-lab",
-    name: "Rea Lab",
-    year: "2025",
-    summary: "Product site designed and built end to end, from component system to deployment.",
-  },
-  {
     slug: "saigon-to-coast",
     name: "Saigon to Coast",
     year: "2025",

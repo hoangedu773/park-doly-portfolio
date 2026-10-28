@@ -119,9 +119,6 @@ export default function CVPage() {
                   <strong>HR Blockbot</strong> · 2026 — HR workflow automation for staff across departments, plus
                   an AI policy assistant that answers from company documents.
                 </li>
-                <li>
-                  <strong>Rea Lab</strong> · 2025 — product site, design to deployment.
-                </li>
               </ul>
             </section>
 
