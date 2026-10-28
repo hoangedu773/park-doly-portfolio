@@ -11,6 +11,7 @@ export type ExperienceEntry = {
 // Closed-source work. Add a new entry here and it appears on both the home
 // page and /cv — nothing else needs to change. `metrics` carries the numbers
 // the page leads with; `cv` holds the two condensed bullets the CV uses.
+// Only measured numbers belong here — no estimates, no vanity figures.
 export const experience: ExperienceEntry[] = [
   {
     title: "Enterprise workforce & AI copilot platform",
@@ -35,15 +36,15 @@ export const experience: ExperienceEntry[] = [
     timeline: "2025",
     stack: ["Astro", "TypeScript", "Cloudflare Workers", "D1", "Workers AI", "Telegram API"],
     metrics: [
-      { value: "$450K+", label: "annual booking GMV" },
-      { value: "40,000+", label: "monthly travellers" },
-      { value: "$0", label: "monthly hosting" },
+      { value: "1,000+", label: "site visits" },
+      { value: "400", label: "rides booked and paid" },
+      { value: "sub-50 ms", label: "edge latency" },
     ],
     summary:
-      "Astro on Cloudflare Workers and D1, with a Telegram dispatcher for drivers and a Workers AI consultant answering travellers at the edge.",
+      "Astro on Cloudflare Workers and D1, with a Telegram dispatcher for driver assignment and a Workers AI consultant answering travellers at the edge.",
     cv: [
-      "Astro on Cloudflare Workers + D1: $450K+ annual booking GMV, 40,000+ monthly travellers, sub-50 ms edge latency.",
-      "Telegram dispatcher removed 85% of manual dispatch; AI consultant lifted quote-to-booking conversion 38%; $0 hosting.",
+      "Astro on Cloudflare Workers + D1: private transfer booking at sub-50 ms edge latency, running at $0 hosting.",
+      "Telegram dispatcher with single-tap driver assignment and retry queues; 400 rides booked and paid to date.",
     ],
   },
   {
@@ -51,15 +52,15 @@ export const experience: ExperienceEntry[] = [
     role: "Solo fullstack developer",
     stack: ["PostgreSQL", "Redis", "Python (PyMuPDF)", "WebSockets", "Canvas 2D"],
     metrics: [
-      { value: "10,000+", label: "enrolled students" },
-      { value: "9,500+", label: "exam assets" },
-      { value: "1,000+", label: "concurrent test-takers" },
+      { value: "455+", label: "enrolled students" },
+      { value: "11,000", label: "lessons" },
+      { value: "55,000", label: "PDF documents" },
     ],
     summary:
-      "A proprietary LMS that replaced Kajabi and Teachable: offline-first exam engine, Redis playback leases with Canvas watermarking, and automated ingestion for 7,000+ exam papers.",
+      "A proprietary LMS that replaced Kajabi and Teachable: offline-first exam engine, Redis playback leases with Canvas watermarking, and automated PDF ingestion — sold at 500,000 VND a year.",
     cv: [
-      "Proprietary LMS for 10,000+ students and 9,500+ exam assets, replacing Kajabi/Teachable at $0–$10 per month.",
-      "Offline-first exam engine for 1,000+ concurrent test-takers with 0% data loss, plus Redis/Canvas DRM and watermarking.",
+      "Proprietary LMS for 455+ students with 11,000 lessons and 55,000 PDFs, sold at 500,000 VND per year instead of a commercial platform.",
+      "Offline-first exam engine with local sync vaults, plus Redis playback leases and Canvas watermarking on video and PDFs.",
     ],
   },
   {
@@ -67,15 +68,15 @@ export const experience: ExperienceEntry[] = [
     role: "Lead fullstack architect",
     stack: ["Laravel 12", "PHP 8.2", "MySQL", "Google Gemini", "Redis"],
     metrics: [
-      { value: "85,000+", label: "candidates" },
-      { value: "$185K", label: "ARR in 6 months" },
-      { value: "72%", label: "faster hiring cycle" },
+      { value: "<10 ms", label: "cached match latency" },
+      { value: "5-stage", label: "ATS pipeline" },
+      { value: "10 weeks", label: "idea to production" },
     ],
     summary:
-      "Laravel 12 recruitment platform with a Gemini matching engine, a live resume builder, and a five-stage ATS pipeline.",
+      "Laravel 12 recruitment platform: Gemini-driven matching behind a composite cache, a live WYSIWYG resume builder, and a five-stage ATS with crash-resilient auto-save.",
     cv: [
-      "Laravel 12 recruitment platform: 85,000+ candidates, 1,500+ recruiters, $0 → $185K ARR in six months.",
-      "Gemini matching engine with composite cache (<10 ms, −85% LLM spend) and a 5-stage ATS that cut hiring cycles 72%.",
+      "Laravel 12 / PHP 8.2 (DDD) recruitment platform with a Gemini matching engine behind a composite cache: under 10 ms average match latency.",
+      "Live WYSIWYG resume builder with CAS optimistic locking and dual-snapshot immutability; five-stage ATS with sub-200 ms inline preview.",
     ],
   },
 ];
